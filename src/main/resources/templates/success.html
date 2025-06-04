@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>예약 완료</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Jua', sans-serif;
+            background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card img {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        .card h1 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .card p {
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .buttons a {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons a:hover {
+            background-color: #43a047;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success">
+    <h1>완료되었습니다!</h1>
+    <p th:text="${message}">예약이 성공적으로 완료되었습니다!</p>
+    <div class="buttons">
+        <a th:href="@{/my-reservations}">예약 확인 / 취소</a>
+        <a th:href="@{/main}">메인으로 돌아가기</a>
+    </div>
+</div>
+</body>
+</html>

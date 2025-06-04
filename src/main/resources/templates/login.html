@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>당구장 예약 로그인</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            font-family: 'Jua', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(0,0,0,0.6);
+            padding: 40px 60px;
+            border-radius: 20px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 18px;
+            border: none;
+            background-color: #00c853;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00b342;
+        }
+
+        .signup {
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        .signup a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+
+        .error {
+            margin-top: 10px;
+            color: #ff5252;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>당구장 예약 시스템에 오신 것을 환영합니다 🎱</h1>
+
+    <form action="/login" method="post">
+        <input type="text" name="email" placeholder="이메일 또는 관리자ID" required>
+        <input type="password" name="password" placeholder="비밀번호" required>
+        <button type="submit">로그인</button>
+    </form>
+
+    <div class="error" th:if="${error}" th:text="${error}"></div>
+
+    <div class="signup">
+        계정이 없으신가요? 👉 <a href="/signup">회원가입하기</a>
+    </div>
+</div>
+</body>
+</html>

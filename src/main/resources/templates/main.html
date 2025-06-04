@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>당구장 예약 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            font-family: 'Jua', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 15px 10px;
+            padding: 12px 30px;
+            background-color: #00c853;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #00b342;
+        }
+
+        .logout-btn {
+            background-color: #ff5252;
+        }
+
+        .logout-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🎱 로그인되었습니다!</h1>
+    <p th:text="'환영합니다, ' + ${userName} + '님 👋'">사용자 이름</p>
+
+    <a href="/reservation" class="btn">당구장 예약하러 가기</a>
+    <a href="/logout" class="btn logout-btn">로그아웃</a>
+</div>
+</body>
+</html>
