@@ -21,6 +21,8 @@
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
+            max-width: 400px;
+            width: 100%;
         }
 
         .card img {
@@ -43,11 +45,12 @@
         .buttons a {
             display: inline-block;
             padding: 12px 24px;
-            margin: 5px 10px;
+            margin: 5px;
             background-color: #4CAF50;
             color: white;
             text-decoration: none;
             border-radius: 8px;
+            font-size: 14px;
             transition: background-color 0.3s ease;
         }
 
@@ -58,7 +61,7 @@
 </head>
 <body>
 <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success">
+    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="성공 아이콘">
     <h1>완료되었습니다!</h1>
     <p th:text="${message}">예약이 성공적으로 완료되었습니다!</p>
     <div class="buttons">

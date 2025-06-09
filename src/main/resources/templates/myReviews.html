@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>내 리뷰 목록</title>
+</head>
+<body>
+<h1>내 리뷰 목록</h1>
+<ul>
+    <li th:each="review : ${reviews}">
+        <strong th:text="${review.hallName}">당구장</strong> -
+        <span th:text="${review.rating}">점수</span>점 -
+        <em th:text="${review.comment}">코멘트</em>
+    </li>
+</ul>
+<a href="/main">메인으로 돌아가기</a>
+</body>
+</html>

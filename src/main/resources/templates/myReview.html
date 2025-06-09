@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내 리뷰 목록</title>
+</head>
+<body>
+<h2>내가 작성한 리뷰</h2>
+<table>
+    <thead>
+    <tr>
+        <th>당구장</th>
+        <th>평점</th>
+        <th>내용</th>
+        <th>작성일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="review : ${reviews}">
+        <td th:text="${review.hallName}"></td>
+        <td th:text="${review.rating} + '점'"></td>
+        <td th:text="${review.comment}"></td>
+        <td th:text="${review.createdAt}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

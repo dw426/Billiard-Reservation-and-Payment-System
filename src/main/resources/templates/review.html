@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>리뷰 작성</title>
+</head>
+<body>
+<h2>당구장 리뷰 작성</h2>
+<form action="/review" method="post">
+    <label>당구장 이름: <input type="text" name="hallName" required></label><br>
+    <label>평점(1~5): <input type="number" name="rating" min="1" max="5" required></label><br>
+    <label>리뷰 내용:<br>
+        <textarea name="comment" rows="4" cols="40" required></textarea>
+    </label><br>
+    <button type="submit">제출</button>
+</form>
+</body>
+</html>

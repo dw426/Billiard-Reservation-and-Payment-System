@@ -17,7 +17,7 @@ public class ReservationController {
     @Autowired
     private ReservationRepository reservationRepository;
 
-    // 예약 폼 페이지
+    // ✅ 예약 폼 페이지
     @GetMapping("/reservation")
     public String showReservationForm(Model model, HttpSession session) {
         if (session.getAttribute("user") == null) {
@@ -27,7 +27,7 @@ public class ReservationController {
         return "reservation";  // templates/reservation.html
     }
 
-    // 예약 처리
+    // ✅ 예약 처리 → success 페이지로 이동
     @PostMapping("/reservation")
     public String processReservation(@ModelAttribute Reservation reservation,
                                      HttpSession session,
@@ -44,14 +44,14 @@ public class ReservationController {
         return "success";  // templates/success.html
     }
 
-    // 성공 페이지
+    // ✅ 예약 성공 메시지 페이지
     @GetMapping("/success")
     public String successPage(@RequestParam(required = false) String message, Model model) {
         model.addAttribute("message", message != null ? message : "정상적으로 처리되었습니다.");
         return "success";
     }
 
-    // 사용자 예약 목록 보기
+    // ✅ 사용자 예약 목록 확인
     @GetMapping("/my-reservations")
     public String myReservations(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -64,7 +64,7 @@ public class ReservationController {
         return "myReservations"; // templates/myReservations.html
     }
 
-    // 예약 취소 (사용자 본인만 삭제 가능)
+    // ✅ 사용자 예약 취소
     @PostMapping("/cancel/{id}")
     public String cancelReservation(@PathVariable Long id, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -78,7 +78,7 @@ public class ReservationController {
         return "redirect:/my-reservations";
     }
 
-    // 관리자 예약 삭제
+    // ✅ 관리자 예약 삭제
     @PostMapping("/reservation/delete/{id}")
     public String deleteReservationAsAdmin(@PathVariable Long id, HttpSession session) {
         Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");

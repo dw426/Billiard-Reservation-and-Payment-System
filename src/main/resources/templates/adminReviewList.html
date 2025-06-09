@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 리뷰 관리</title>
+</head>
+<body>
+<h1>관리자 리뷰 관리</h1>
+<table>
+    <thead>
+    <tr>
+        <th>사용자</th>
+        <th>당구장</th>
+        <th>점수</th>
+        <th>내용</th>
+        <th>삭제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="review : ${reviews}">
+        <td th:text="${review.userEmail}">이메일</td>
+        <td th:text="${review.hallName}">당구장</td>
+        <td th:text="${review.rating}">5</td>
+        <td th:text="${review.comment}">내용</td>
+        <td>
+            <form th:action="@{'/admin/reviews/delete/' + ${review.id}}" method="post">
+                <button type="submit">삭제</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/admin/dashboard">관리자 메인</a>
+</body>
+</html>
