@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>당구장 예약 로그인</title>
+    <title>당구장 예약 시스템</title>
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,32 +17,32 @@
         }
 
         .container {
-            background-color: rgba(0,0,0,0.6);
-            padding: 40px 60px;
-            border-radius: 20px;
+            background-color: rgba(0,0,0,0.7);
+            padding: 50px 70px;
+            border-radius: 25px;
             text-align: center;
-            width: 400px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            width: 480px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         h1 {
-            margin-bottom: 20px;
-            font-size: 30px;
+            margin-bottom: 30px;
+            font-size: 32px;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
+            padding: 14px 16px;
+            margin: 12px 0;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 16px;
         }
 
         button {
             width: 100%;
-            padding: 12px;
-            margin-top: 15px;
+            padding: 14px;
+            margin-top: 20px;
             font-size: 18px;
             border: none;
             background-color: #00c853;
@@ -56,24 +56,26 @@
         }
 
         .signup {
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 15px;
         }
 
         .signup a {
             color: #4fc3f7;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .error {
-            margin-top: 10px;
+            margin-top: 12px;
             color: #ff5252;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>당구장 예약 시스템에 오신 것을 환영합니다 🎱</h1>
+    <h1> 🎱당구장 예약 시스템🎱 </h1>
 
     <form action="/login" method="post">
         <input type="text" name="email" placeholder="이메일 또는 관리자ID" required>

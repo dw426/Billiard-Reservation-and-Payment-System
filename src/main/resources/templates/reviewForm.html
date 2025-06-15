@@ -102,7 +102,7 @@
 
     <form th:action="@{/review}" th:object="${review}" method="post" onsubmit="return validateRating();">
         <label>당구장 이름</label>
-        <input type="text" th:field="*{hallName}" th:value="${hallName}" readonly>
+        <input type="text" th:field="*{hallName}" th:value="${hallName}">
 
         <label>별점</label>
         <div class="stars">

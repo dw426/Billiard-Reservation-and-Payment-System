@@ -35,16 +35,7 @@ public class ReviewController {
 
         review.setUserEmail(user.getEmail());
         reviewRepository.save(review);
-
         return "redirect:/my-reviews";
-    }
-
-    // 전체 리뷰 리스트 (모든 사용자 확인 가능)
-    @GetMapping("/reviews")
-    public String listAllReviews(Model model) {
-        List<Review> reviews = reviewRepository.findAll();
-        model.addAttribute("reviews", reviews);
-        return "reviewList";
     }
 
     // 내가 쓴 리뷰 보기
@@ -58,24 +49,11 @@ public class ReviewController {
         return "myReviews";
     }
 
-    // 관리자 - 모든 리뷰 관리
-    @GetMapping("/admin/reviews")
-    public String adminReviewList(Model model, HttpSession session) {
-        Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
-        if (isAdmin == null || !isAdmin) return "redirect:/login";
-
+    // 전체 리뷰 보기 (사용자 전용 리스트)
+    @GetMapping("/reviews")
+    public String listAllReviews(Model model) {
         List<Review> reviews = reviewRepository.findAll();
         model.addAttribute("reviews", reviews);
-        return "adminReviewList";
-    }
-
-    // 관리자 - 리뷰 삭제
-    @PostMapping("/admin/reviews/delete/{id}")
-    public String deleteReviewAsAdmin(@PathVariable Long id, HttpSession session) {
-        Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
-        if (isAdmin == null || !isAdmin) return "redirect:/login";
-
-        reviewRepository.deleteById(id);
-        return "redirect:/admin/reviews";
+        return "reviewList";
     }
 }

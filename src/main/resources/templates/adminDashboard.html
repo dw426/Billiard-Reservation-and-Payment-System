@@ -7,89 +7,50 @@
     <style>
         body {
             font-family: 'Jua', sans-serif;
-            background: #f2f3f7;
-            margin: 0;
-            padding: 0;
-        }
-
-        .dashboard {
-            max-width: 1000px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+            padding-top: 100px;
         }
 
         h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            font-size: 36px;
+            margin-bottom: 40px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            text-align: center;
-            padding: 12px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        th {
-            background-color: #007bff;
+        .btn {
+            display: block;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #00c853;
             color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 20px;
+            transition: background-color 0.3s;
         }
 
-        tr:hover {
-            background-color: #f1f1f1;
+        .btn:hover {
+            background-color: #00b342;
         }
 
         .logout-btn {
-            float: right;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: -10px;
-        }
-
-        .logout-btn:hover {
-            background-color: #c82333;
+            margin-top: 30px;
+            font-size: 16px;
+            color: #ffcdd2;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-<div class="dashboard">
-    <a href="/logout" class="logout-btn">로그아웃</a>
-    <h1>전체 예약 목록 (관리자)</h1>
 
-    <table>
-        <thead>
-        <tr>
-            <th>예약자 이메일</th>
-            <th>당구장</th>
-            <th>위치</th>
-            <th>당구대 수</th>
-            <th>예약 날짜</th>
-            <th>시간</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="res : ${reservations}">
-            <td th:text="${res.userEmail}">email@example.com</td>
-            <td th:text="${res.hallName}">당구장 이름</td>
-            <td th:text="${res.location}">경북 경산시</td>
-            <td th:text="${res.tableCount}">2</td>
-            <td th:text="${res.date}">2025-06-05</td>
-            <td th:text="${res.time}">14:00</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<h1>📊 관리자 대시보드</h1>
+
+<a href="/admin/reservations" class="btn">예약 목록 보기</a>
+<a href="/admin/reviews" class="btn">리뷰 관리하기</a>
+
+<a href="/logout" class="logout-btn">로그아웃</a>
+
 </body>
 </html>

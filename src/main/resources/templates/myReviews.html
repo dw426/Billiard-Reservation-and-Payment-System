@@ -3,16 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <title>내 리뷰 목록</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Jua', sans-serif;
+            background: linear-gradient(135deg, #d4fc79, #96e6a1);
+            margin: 0;
+            padding: 40px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2e7d32;
+        }
+
+        .review-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px 30px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            font-size: 20px;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .review-rating {
+            font-size: 16px;
+            color: #f57f17;
+        }
+
+        .review-comment {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            text-decoration: none;
+            background-color: #43a047;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background-color: #2e7d32;
+        }
+    </style>
 </head>
 <body>
-<h1>내 리뷰 목록</h1>
-<ul>
-    <li th:each="review : ${reviews}">
-        <strong th:text="${review.hallName}">당구장</strong> -
-        <span th:text="${review.rating}">점수</span>점 -
-        <em th:text="${review.comment}">코멘트</em>
-    </li>
-</ul>
-<a href="/main">메인으로 돌아가기</a>
+
+<h1>내 리뷰 목록 🎱</h1>
+
+<div th:each="review : ${reviews}" class="review-card">
+    <div class="review-header" th:text="${review.hallName}">당구장 이름</div>
+    <div class="review-rating">⭐ <span th:text="${review.rating}">5</span>점</div>
+    <div class="review-comment" th:text="${review.comment}">리뷰 내용</div>
+</div>
+
+<a href="/main" class="back-btn">메인으로 돌아가기</a>
+
 </body>
 </html>

@@ -39,4 +39,7 @@ public class Reservation {
 
     public String getUserEmail() { return userEmail; }
     public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
+
+    public String getHallNmae() { return hallName; }
+    public void setHallNmae(String hallName) { this.hallName = hallName; }
 }
